@@ -79,9 +79,12 @@ nav.options > h3 {
 /*banner */
 div.banner {
     display: flex;
-    height: 400px;
+    height: 200px;
     background-image: url("../resources/images/banner.jpg");
-    align-items: end;
+    background-position: center; 
+    background-size: cover;
+    align-items: flex-end;
+    padding: 20px 10%;
 }
 
 button.more-information {
@@ -91,7 +94,16 @@ button.more-information {
     font-size: medium;
 }
 
+@media only screen and (max-width: 768px) {
+    div.banner {
+        height: 50px;
+        padding: 10px 5%;
+    }
 
+    button.more-information {
+        margin-left: 5%;
+    }
+}
 /* City filter */
 div.filter {
     display: flex;
@@ -124,9 +136,6 @@ div.filter div select {
     border-radius: 20px;
     width: 200px;
 }
-
-
-
 
 /* movies */
 h1 {
