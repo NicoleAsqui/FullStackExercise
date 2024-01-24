@@ -98,10 +98,14 @@ button.more-information {
     div.banner {
         height: 50px;
         padding: 10px 5%;
+        background-size: contain;
     }
 
     button.more-information {
         margin-left: 5%;
+        font-size: small; 
+        padding: 4px 5px; 
+        margin-bottom: 1px;
     }
 }
 /* City filter */
