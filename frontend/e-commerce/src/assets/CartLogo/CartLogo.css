@@ -1,0 +1,9 @@
+.cartLogoContainer {
+    display: flex;
+    align-items: center;
+    margin: 0 20px 0 0;
+}
+
+.cartLogoContainer img{
+    height: 30px;
+}

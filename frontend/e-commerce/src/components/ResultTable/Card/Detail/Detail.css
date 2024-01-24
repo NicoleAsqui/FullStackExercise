@@ -1,0 +1,7 @@
+.DetailsCardContainer {
+    background: linear-gradient(90deg, rgba(165,13,138,1) 0%, rgba(254,54,99,1) 100%);
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 23px;
+}

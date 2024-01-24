@@ -1,0 +1,7 @@
+.ResultInfoBarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 35px;
+    border: solid 1px #8B8B8B
+}
