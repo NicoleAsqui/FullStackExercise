@@ -53,7 +53,9 @@ function SearchProvider({ children }) {
         priceProduct,
         setPriceProduct,
         descriptionProduct,
-        setDescriptionProduct
+        setDescriptionProduct,
+        products,
+        setProducts
       }}
     >
       {children}
