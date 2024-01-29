@@ -19,7 +19,11 @@ function Card ({ image, title, price, description, rating }) {
         setPriceProduct(price)
         setDescriptionProduct(description)
     }
-
+    const addToCart = (e) => {
+        e.stopPropagation();
+        console.log(`Product added to cart`);
+    };
+    
     return (
         <div className='CardContainer' onClick={openModal}>
             <div className='ProductImageContainer'>
@@ -30,6 +34,9 @@ function Card ({ image, title, price, description, rating }) {
                 price = {price}
                 rating={rating} 
             />
+            <button className="AddToCartButton" onClick={addToCart}>
+                🛒 Add to Cart
+            </button>
         </div>
     )
 }
