@@ -24,6 +24,7 @@ function ResultTable () {
                             title = {product.title}
                             price = {product.price}
                             description = {product.description}
+                            rating={product.rating}
                         />
                     )
                 }
