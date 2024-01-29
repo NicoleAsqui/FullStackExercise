@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/global.css"/>
     <title>Document</title>
-    <script src="../javascript/get-movies.js" type="module"></script>
-    <script src="../javascript/constants.js" type="module"></script>
+    <script src="../javascript/get-movie.js"></script>
+    <script src="../javascript/constants.js"></script>
 </head>
 <body>
     <header>
@@ -24,7 +24,7 @@
             </div>
         </nav>
         <nav class="shop-options">
-            <img class="logo" src="../resources/images/cinemark_logo.png" />
+            <img class="logo" src="../images/cinemark_logo.png" />
             <nav class="options">
                 <h3>Billboard</h3>
                 <h3>Theaters</h3>
@@ -35,8 +35,8 @@
     </header>
 
     <div class="banner">
-            <button class="more-information">More Information</button>
-        </div>
+        <button class="more-information">More Information</button>
+    </div>
 
     <div class="filter">
         <div class="city-filter">
@@ -56,45 +56,52 @@
             </select>
         </div>
     </div>
-
-    <h1>Billboard</h1>
-    <div class="movie-list" id="movie-list">
+    <h1>One Hundred and One Dalmatians</h1>
+    
+    <div class="movie-details" id="movie-details">
     </div>
-    <a href="one-hundred-and-one-damatians.html">Go to One Hundred and One Dalmatians</a>
+    
 </body>
+
 <script type="module">
-    import { get_movies } from '../javascript/get-movies.js';
+    import { get_movie } from '../javascript/get-movie.js';
 
-    const createImag = (movie) => {
-        const imag = movie.primaryImage.url
-        const alternativeText = movie.primaryImage.caption.plainText
-        const imgElement = document.createElement("img");
-        imgElement.src = imag
-        imgElement.alt = alternativeText
-        return imgElement  
-    }
+    const movieId = 'tt0055254';
 
+    get_movie(movieId)
+        .then((movie) => {
+            console.log(movie)
+            const movieDetailsContainer = document.querySelector(".movie-details");
+            const genres = movie.genres.genres.map((genre) => genre.text).join(', ');
 
-    get_movies()
-        .then((data) => {
-            data.map((movie) => {
-                const container = document.createElement("div")
-                container.className = "poster-container"
+            movieDetailsContainer.innerHTML = `
+                <table>
+                    <tr>
+                        <td class="image-container">
+                            <img src="${movie.primaryImage.url}" alt="${movie.originalTitleText.text}" style="max-width: 100%;">
+                        </td>
+                        <td class="info-container">
+                            <h2>Name:</h2>
+                            <p>${movie.originalTitleText.text}</p>
 
-                const imgElement = createImag(movie)
-                container.appendChild(imgElement)
+                            <h2>Genre:</h2>
+                            <p>${genres}</p>
 
-                const buttonElement = document.createElement("button")
-                buttonElement.textContent = "View"
-                buttonElement.className = "schedules"
-                buttonElement.setAttribute('data-movie-id', movie.id)
-                container.appendChild(buttonElement)
+                            <h2>Synopsis:</h2>
+                            <p>${movie.plot.plotText.plainText}</p>
 
-                const element = document.getElementById("movie-list");
-                element.appendChild(container);
-            })
+                            <h2>Duration:</h2>
+                            <p>${movie.runtime.seconds / 60} minutes</p>
+                        </td>
+                    </tr>
+                </table>
+            `;
+        })
+        .catch((error) => {
+            console.error(error);
         });
 </script>
+
 <footer>
     <div class="about-us">
         <h2>About</h2>
