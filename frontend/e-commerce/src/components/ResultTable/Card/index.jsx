@@ -10,6 +10,8 @@ function Card ({ image, title, price, description, rating }) {
         setTitleProduct,
         setPriceProduct,
         setDescriptionProduct,
+        productsInCart,
+        setProductsInCart 
     } = useContext(SearchContext);
 
     const openModal = () => {
@@ -21,7 +23,15 @@ function Card ({ image, title, price, description, rating }) {
     }
     const addToCart = (e) => {
         e.stopPropagation();
-        console.log(`Product added to cart`);
+        const newProduct = {
+            id: Math.random(),
+            image,
+            title,
+            price,
+            quantity: 1 
+        };
+        setProductsInCart([...productsInCart, newProduct]);
+        console.log(`${title} added to cart`);
     };
     
     return (

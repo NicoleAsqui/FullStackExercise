@@ -1,6 +1,42 @@
 .NavbarContainer {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: linear-gradient(90deg, rgba(165,13,138,1) 0%, rgba(254,54,99,1) 100%);
     padding: 15px;
-    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.NavbarLeft {
+    display: flex;
+    align-items: center;
+}
+
+.NavbarRight {
+    display: flex;
+    align-items: center;
+}
+
+.CartIconContainer {
+    position: relative;
+    cursor: pointer;
+}
+
+.CartCounter {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
 }
